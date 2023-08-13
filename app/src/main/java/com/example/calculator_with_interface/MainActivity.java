@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText etn1;
     private Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14,bt15,bt16,bt17;
     double Res1,Res2;
-    boolean add,sub,div,mul;
+    boolean add,sub,div,mul,reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +146,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Res2=Double.parseDouble(etn1.getText()+"");
+                        if(add==true){
+                            etn1.setText(Res1+Res2+"");
+                            add=false;
+                        }
+                        if(sub==true){
+                            etn1.setText(Res1-Res2+"");
+                            sub=false;
+                        }
+                        if(mul==true){
+                            etn1.setText(Res1*Res2+"");
+                            mul=false;
+                        }
+                        if(div==true){
+                            etn1.setText(Res1/Res2+"");
+                            div=false;
+                        }
             }
         });
         bt16.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +181,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(reset=true) {
+                    etn1.setText(null);
+                }
             }
         });
         etn1.setOnClickListener(new View.OnClickListener() {
